@@ -5,6 +5,9 @@ var vy = 0.0;
 var updateRate = 1/60; // Sensor refresh rate
 
 function getAccel(){
+    data = document.getElementById("data");
+    data.innerText = `Getting permissions`;
+
     DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') {
        // Add a listener to get smartphone orientation 
