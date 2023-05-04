@@ -42,6 +42,8 @@ function getAccel(){
             window.addEventListener('devicemotion', (event) => {
                 var v = event.acceleration;
 
+                alert(v);
+
                 data = document.getElementById("data");
                 data.innerText = `${v.x} ${v.y} ${v.z}`;
             });
