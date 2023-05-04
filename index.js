@@ -49,13 +49,13 @@ function getAccel(){
                 var v = event.acceleration;
 
                 data = document.getElementById("accel_data");
-                speed.x += v.x;
-                speed.y += v.y;
-                speed.z += v.z;
+                speed.x += (v.x) * (1/50);
+                speed.y += (v.y) * (1/50);
+                speed.z += (v.z) * (1/50);
 
-                position.x += speed.x;
-                position.y += speed.y;
-                position.z += speed.z;
+                position.x += speed.x * (1/50);
+                position.y += speed.y * (1/50);
+                position.z += speed.z * (1/50);
 
                 data.innerText = `${position.x} ${position.y} ${position.z}`;
             });
