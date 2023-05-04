@@ -5,6 +5,9 @@ var vy = 0.0;
 var updateRate = 1/60; // Sensor refresh rate
 
 function getAccel(){
+    speed = { x: 0, y: 0, z: 0 }
+    position = { x: 0, y: 0, z: 0 }
+
     data = document.getElementById("accel_data");
     data.innerText = `Getting permissions`;
 
@@ -46,7 +49,15 @@ function getAccel(){
                 var v = event.acceleration;
 
                 data = document.getElementById("accel_data");
-                data.innerText = `${v.x} ${v.y} ${v.z}`;
+                speed.x += v.x;
+                speed.y += v.y;
+                speed.z += v.z;
+
+                position.x += speed.x;
+                position.y += speed.y;
+                position.z += speed.z;
+
+                data.innerText = `${position.x} ${position.y} ${position.z}`;
             });
         }
     });
