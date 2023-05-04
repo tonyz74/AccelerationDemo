@@ -5,7 +5,7 @@ var vy = 0.0;
 var updateRate = 1/60; // Sensor refresh rate
 
 function getAccel(){
-    data = document.getElementById("data");
+    data = document.getElementById("accel_data");
     data.innerText = `Getting permissions`;
 
     DeviceMotionEvent.requestPermission().then(response => {
@@ -45,9 +45,7 @@ function getAccel(){
             window.addEventListener('devicemotion', (event) => {
                 var v = event.acceleration;
 
-                alert(v);
-
-                data = document.getElementById("data");
+                data = document.getElementById("accel_data");
                 data.innerText = `${v.x} ${v.y} ${v.z}`;
             });
         }
